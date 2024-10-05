@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Renders _underline_ to <u>underline</u>",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "preversion": "npm test",
     "postpublish": "git push && git push --tags",
@@ -10,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arve0/markdown-it-underline.git"
+    "url": "git+https://github.com/futamiyarn/markdown-it-underline.git"
   },
   "keywords": [
     "underline",
@@ -21,12 +22,9 @@
   ],
   "author": "Arve Seljebu",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/arve0/markdown-it-underline/issues"
-  },
-  "homepage": "https://github.com/arve0/markdown-it-underline#readme",
+  "homepage": "https://github.com/futamiyarn/markdown-it-underline#readme",
   "devDependencies": {
-    "markdown-it": "^8.1.0",
-    "power-assert": "^1.4.2"
+    "markdown-it": "^14.1.0",
+    "power-assert": "^1.6.1"
   }
 }
