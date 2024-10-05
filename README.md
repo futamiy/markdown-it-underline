@@ -1,33 +1,43 @@
 # markdown-it-underline
+
 Renders this markdown
 
 ```md
-_underline_ *emphasis*
+**underline**
 ```
 
 to this HTML
 
 ```HTML
-<u>underline</u> <em>emphasis</em>
+<u>underline</u>
 ```
-
-This might not be semantic correct, but who cares :-)
 
 See [the discussion at talk.commonmark.com](https://talk.commonmark.org/t/feature-request-underline-text/343).
 
 ## Install
 
 ```sh
-npm install markdown-it-underline
+npm install @futami/markdown-it-underline
 ```
 
 ## Usage
 
-```js
-const underline = require('markdown-it-underline');
-const md = require('markdown-it')().use(underline);
+### CommonJS
 
-console.log(md.renderInline('_underline_ *emphasis*'));
+```js
+const underline = require("markdown-it-underline");
+const md = require("markdown-it")().use(underline);
+
+console.log(md.renderInline("__underline__"));
+```
+
+### Module
+
+```js
+import underline from "@futami/markdown-it-underline";
+import md from "markdown-it";
+
+md().use(underline).renderInline("__underline__");
 ```
 
 ## Development
