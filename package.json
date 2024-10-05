@@ -1,13 +1,21 @@
 {
-  "name": "markdown-it-underline",
+  "name": "@futamiy/markdown-it-underline",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "2.0.0",
   "description": "Renders _underline_ to <u>underline</u>",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "preversion": "npm test",
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "release": "npm run build && changeset publish",
+    "lint": "tsc",
+    "preversion": "npm run build && npm test",
     "postpublish": "git push && git push --tags",
-    "test": "node test.js"
+    "test": "npm run build && node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +32,15 @@
   "license": "MIT",
   "homepage": "https://github.com/futamiyarn/markdown-it-underline#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@types/jest": "^29.5.13",
+    "@types/markdown-it": "^14.1.2",
+    "jest": "^29.7.0",
     "markdown-it": "^14.1.0",
-    "power-assert": "^1.6.1"
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2"
+  },
+  "peerDependencies": {
+    "markdown-it": "^14.1.0"
   }
 }

@@ -1,6 +1,6 @@
 import assert from "assert";
 import MarkdownIt from "markdown-it";
-import markdownItUnderline from "./index.js";
+import markdownItUnderline from "./dist/index.js";
 
 const md = new MarkdownIt().use(markdownItUnderline);
 
@@ -11,25 +11,25 @@ const tests = [
     input: "***strong emphasis***",
     expected: "<em><strong>strong emphasis</strong></em>",
   },
-  { input: "_underline_", expected: "<u>underline</u>" },
-  { input: "__strong__", expected: "<strong>strong</strong>" },
+  { input: "__underline__", expected: "<u>underline</u>" },
   {
-    input: "___strong underline___",
-    expected: "<u><strong>strong underline</strong></u>",
+    input: "*__emphasis underline__*",
+    expected: "<em><u>emphasis underline</u></em>",
+  },
+  {
+    input: "**__strong underline__**",
+    expected: "<strong><u>strong underline</u></strong>",
+  },
+  {
+    input: "***__strong emphasis underline__***",
+    expected: "<em><strong><u>strong emphasis underline</u></strong></em>",
   },
 ];
 
-console.log("Running Markdown Underline Plugin Tests:");
-
-tests.forEach(({ input, expected }, index) => {
-  try {
-    assert.strictEqual(md.renderInline(input), expected);
-    console.log(`✓ Test ${index + 1} passed: "${input}" rendered correctly`);
-  } catch (error) {
-    console.error(`✗ Test ${index + 1} failed: "${input}"`);
-    console.error(`  Expected: ${expected}`);
-    console.error(`  Received: ${md.renderInline(input)}`);
-  }
+describe("Markdown Underline Plugin", () => {
+  tests.forEach(({ input, expected }) => {
+    it(`should render "${input}" correctly`, () => {
+      assert.strictEqual(md.renderInline(input), expected);
+    });
+  });
 });
-
-console.log("All tests completed.");
