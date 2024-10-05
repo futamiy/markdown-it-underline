@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-underline",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Renders _underline_ to <u>underline</u>",
   "main": "index.js",
   "type": "module",
@@ -20,7 +20,7 @@
     "markdown-it-plugin",
     "commonmark"
   ],
-  "author": "Arve Seljebu",
+  "author": "Futami",
   "license": "MIT",
   "homepage": "https://github.com/futamiyarn/markdown-it-underline#readme",
   "devDependencies": {
