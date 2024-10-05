@@ -1,22 +1,27 @@
 import MarkdownIt from "markdown-it";
 
+// Define types using typeof on the instance of MarkdownIt
+type Token = (typeof MarkdownIt.prototype)["token"];
+type Options = (typeof MarkdownIt.prototype)["options"];
+type Renderer = (typeof MarkdownIt.prototype)["renderer"];
+
 interface TokenRender {
   (
-    tokens: MarkdownIt.Token[],
+    tokens: Token[],
     idx: number,
-    options: MarkdownIt.Options,
+    options: Options,
     env: any,
-    self: MarkdownIt.Renderer
+    self: Renderer
   ): string;
 }
 
 const markdownItUnderline = (md: MarkdownIt): void => {
   const renderStrong: TokenRender = (
-    tokens: MarkdownIt.Token[],
+    tokens: Token[],
     idx: number,
-    options: MarkdownIt.Options,
+    options: Options,
     env: any,
-    self: MarkdownIt.Renderer
+    self: Renderer
   ): string => {
     const token = tokens[idx];
     if (token?.markup === "__") {

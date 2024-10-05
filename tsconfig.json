@@ -1,16 +1,22 @@
 {
-  "esModuleInterop": true,
-  "strict": true,
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "moduleResolution": "node",
-    "declaration": true,
-    "outDir": "./dist",
-    "strict": true,
+    /* Base Options: */
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    /* Strictness */
+    "strict": true,
     "noUncheckedIndexedAccess": true,
-    "noEmit": true
+    /* If NOT transpiling with TypeScript: */
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "noEmit": true,
+    /* If your code runs in the DOM: */
+    "lib": ["es2022", "dom", "dom.iterable"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
