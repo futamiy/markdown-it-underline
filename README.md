@@ -3,7 +3,6 @@
 Renders this markdown
 
 ```md
-<!-- prettier-ignore -->
 __underline__
 ```
 
